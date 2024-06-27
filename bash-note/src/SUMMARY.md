@@ -8,5 +8,5 @@
     - [Case](./page/case.md)
     - [Loop](./page/loop.md)
 - [Functions](./page/functions.md)
-- [Comments]()
+
 
