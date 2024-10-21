@@ -40,3 +40,26 @@ impl String {
 
 }
 ```
+
+## Example
+
+Basic usage:
+
+```rust
+// some bytes, in a vector
+let sparkle_heart = vec![240, 159, 146, 150];
+
+let sparkle_heart = String::from_utf8_lossy(&sparkle_heart);
+
+assert_eq!("💖", sparkle_heart);
+```
+
+Incorrect bytes:
+
+```rust
+// some invalid bytes
+let input = b"Hello \xF0\x90\x80World";
+let output = String::from_utf8_lossy(input);
+
+assert_eq!("Hello �World", output);
+```
