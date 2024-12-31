@@ -1,4 +1,5 @@
 mod box_single_linked_list;
+mod rc_single_linked_list;
 
 use std::{
     fmt,
@@ -6,7 +7,8 @@ use std::{
     str::FromStr,
 };
 
-pub use box_single_linked_list::LinkedList as SingleLinkedListBox;
+pub use box_single_linked_list::LinkedList as BoxSingleLinkedList;
+pub use rc_single_linked_list::LinkedList as RcSingleLinkedList;
 
 pub trait LinkedListT {
     type Item: fmt::Display + PartialEq;
@@ -16,6 +18,7 @@ pub trait LinkedListT {
     fn remove(&mut self, value: Self::Item);
     fn update(&mut self, old_val: Self::Item, new_val: Self::Item);
     fn print(&self);
+    fn header(&self) -> &str;
 }
 
 pub fn show_list<U, T>()
@@ -25,7 +28,7 @@ where
 {
     let mut list = T::new();
     loop {
-        println!("--- Linked List CLI ---");
+        println!("{}", list.header());
         println!("1. Add node");
         println!("2. Push Back");
         println!("3. Remove node");

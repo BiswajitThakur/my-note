@@ -1,4 +1,3 @@
-#![allow(unused)]
 use std::fmt;
 
 use crate::LinkedListT;
@@ -80,5 +79,9 @@ impl<T: fmt::Display + PartialEq> LinkedListT for LinkedList<T> {
             current = &node.next;
         }
         println!("None");
+    }
+    #[inline(always)]
+    fn header(&self) -> &str {
+        "--- Single Linked List (Box) CLI ---"
     }
 }
