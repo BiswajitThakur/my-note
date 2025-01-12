@@ -1,8 +1,12 @@
 pub fn linear_search<T: PartialEq>(arr: &[T], value: &T) -> Option<usize> {
-    arr.iter()
-        .enumerate()
-        .find(|(_, val)| *val == value)
-        .map(|(index, _)| index)
+    let mut i = 0;
+    while i < arr.len() {
+        if &arr[i] == value {
+            return Some(i);
+        }
+        i += 1;
+    }
+    None
 }
 
 #[test]

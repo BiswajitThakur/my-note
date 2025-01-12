@@ -1,4 +1,6 @@
-use std::{cell::RefCell, fmt, rc::Rc};
+use std::cell::RefCell;
+use std::fmt;
+use std::rc::Rc;
 
 use crate::LinkedListT;
 
@@ -25,7 +27,7 @@ impl<T: fmt::Display + PartialEq> LinkedListT for LinkedList<T> {
     fn new() -> Self {
         Self { head: None }
     }
-    fn add(&mut self, value: Self::Item) {
+    fn push_front(&mut self, value: Self::Item) {
         let new_node = Rc::new(RefCell::new(Node {
             value,
             next: self.head.take(),
@@ -36,6 +38,7 @@ impl<T: fmt::Display + PartialEq> LinkedListT for LinkedList<T> {
         todo!()
     }
     fn remove(&mut self, value: Self::Item) {
+        //let mut current = self.head.take()
         todo!()
     }
     fn update(&mut self, old_val: Self::Item, new_val: Self::Item) {

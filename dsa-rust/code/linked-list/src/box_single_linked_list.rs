@@ -28,7 +28,7 @@ impl<T: fmt::Display + PartialEq> LinkedListT for LinkedList<T> {
     fn new() -> Self {
         Self { head: None }
     }
-    fn add(&mut self, value: Self::Item) {
+    fn push_front(&mut self, value: Self::Item) {
         let new_node = Box::new(Node {
             value,
             next: self.head.take(),

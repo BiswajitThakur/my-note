@@ -13,7 +13,7 @@ pub use rc_single_linked_list::LinkedList as RcSingleLinkedList;
 pub trait LinkedListT {
     type Item: fmt::Display + PartialEq;
     fn new() -> Self;
-    fn add(&mut self, value: Self::Item);
+    fn push_front(&mut self, value: Self::Item);
     fn push_back(&mut self, value: Self::Item);
     fn remove(&mut self, value: Self::Item);
     fn update(&mut self, old_val: Self::Item, new_val: Self::Item);
@@ -49,7 +49,7 @@ where
                 input.clear();
                 io::stdin().read_line(&mut input).unwrap();
                 if let Ok(value) = input.trim().parse::<U>() {
-                    list.add(value);
+                    list.push_front(value);
                 } else {
                     println!("Invalid input. Please enter an integer.");
                 }
